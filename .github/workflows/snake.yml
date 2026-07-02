@@ -1,0 +1,49 @@
+name: Generate Snake Animation
+
+on:
+  # Run automatically every 12 hours
+  schedule:
+    - cron: "0 */12 * * *" 
+  
+  # Allow manual trigger from the GitHub Actions tab
+  workflow_dispatch:
+  
+  # Run on every push to the main branch
+  push:
+    branches:
+      - main
+
+# Grant the Action permission to modify the repository
+permissions:
+  contents: write
+
+jobs:
+  generate-snake:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    
+    steps:
+      # Step 1: Checkout the repository so the workflow can access it
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Generate the SVGs targeting the output/ directory
+      - name: Generate github-contribution-grid-snake.svg
+        uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            output/github-contribution-grid-snake-dark.svg?palette=github-dark&color_snake=#38BDF8&color_dots=#0D1117,#161b22,#0070F3,#7928CA,#A855F7
+            output/snake.svg?palette=github-dark&color_snake=#38BDF8&color_dots=#0D1117,#161b22,#0070F3,#7928CA,#A855F7
+        env:
+          # Used to fetch private contributions if necessary
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      # Step 3: Commit and push the generated SVGs back into the main branch
+      - name: Commit and Push changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add output/
+          git commit -m "chore: auto-generate contribution snake 🐍" || echo "No changes to commit"
+          git push

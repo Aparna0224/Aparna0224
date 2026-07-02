@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%">
+  <defs>
+    <style>
+      @keyframes floatCard { 0% { transform: translateY(0); } 50% { transform: translateY(-4px); } 100% { transform: translateY(0); } }
+      @keyframes dashAnim { from { stroke-dashoffset: 40; } to { stroke-dashoffset: 0; } }
+      .bg { fill: #000000; fill-opacity: 0; }
+      .grid-dot { fill: rgba(255,255,255,0.05); }
+      .card { fill: rgba(22, 27, 34, 0.7); stroke: rgba(255,255,255,0.1); stroke-width: 1px; rx: 12px; }
+      .card-glow { fill: none; stroke: url(#blueGlow); stroke-width: 1px; rx: 12px; opacity: 0; transition: opacity 0.3s; }
+      .icon-box { fill: rgba(0, 112, 243, 0.1); rx: 8px; }
+      .text-title { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 600; fill: #E6EDF3; }
+      .text-desc { font-family: 'Inter', sans-serif; font-size: 13px; fill: #8B949E; line-height: 1.5; }
+      .link-line { stroke: rgba(255,255,255,0.1); stroke-width: 1; stroke-dasharray: 4 4; animation: dashAnim 2s linear infinite; }
+      .accent-blue { fill: #38BDF8; }
+      .accent-purple { fill: #A855F7; }
+    </style>
+    <radialGradient id="blueGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0070F3" />
+      <stop offset="100%" stop-color="transparent" />
+    </radialGradient>
+    <pattern id="dotGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" class="grid-dot" />
+    </pattern>
+  </defs>
+
+  <rect width="100%" height="100%" class="bg" />
+  <rect width="100%" height="100%" fill="url(#dotGrid)" />
+
+  <!-- Core Node in Center -->
+  <circle cx="400" cy="225" r="40" fill="rgba(13, 17, 23, 0.9)" stroke="rgba(255,255,255,0.15)" stroke-width="2" />
+  <circle cx="400" cy="225" r="30" fill="url(#blueGlow)" opacity="0.3" />
+  <path d="M 390 225 L 410 225 M 400 215 L 400 235" stroke="#38BDF8" stroke-width="2" />
+  <text x="400" y="285" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="12px" fill="#8B949E">SYSTEM_CORE</text>
+
+  <!-- Connectors -->
+  <!-- Top Left -->
+  <path d="M 400 225 L 200 130" class="link-line" />
+  <!-- Top Right -->
+  <path d="M 400 225 L 600 130" class="link-line" />
+  <!-- Bottom Left -->
+  <path d="M 400 225 L 200 320" class="link-line" />
+  <!-- Bottom Right -->
+  <path d="M 400 225 L 600 320" class="link-line" />
+
+  <!-- Cards -->
+  <!-- 1. Deep Learning -->
+  <g transform="translate(60, 60)" style="animation: floatCard 5s ease-in-out infinite;">
+    <rect width="280" height="140" class="card" />
+    <rect x="20" y="20" width="40" height="40" class="icon-box" />
+    <circle cx="40" cy="40" r="8" stroke="#38BDF8" stroke-width="2" fill="none" />
+    <text x="75" y="45" class="text-title">Deep Learning Stack</text>
+    <text x="20" y="90" class="text-desc">PyTorch, TensorFlow, Keras.</text>
+    <text x="20" y="110" class="text-desc">Neural architectures &amp; LLMs.</text>
+    <rect x="0" y="0" width="280" height="140" class="card-glow" />
+  </g>
+
+  <!-- 2. Data Engineering -->
+  <g transform="translate(460, 60)" style="animation: floatCard 5s ease-in-out infinite; animation-delay: 1.2s;">
+    <rect width="280" height="140" class="card" />
+    <rect x="20" y="20" width="40" height="40" fill="rgba(121, 40, 202, 0.1)" rx="8" />
+    <rect x="30" y="30" width="20" height="20" stroke="#A855F7" stroke-width="2" fill="none" rx="4" />
+    <text x="75" y="45" class="text-title">Data Engineering</text>
+    <text x="20" y="90" class="text-desc">SQL, PostgreSQL, MongoDB.</text>
+    <text x="20" y="110" class="text-desc">ETL pipelines &amp; data lakes.</text>
+  </g>
+
+  <!-- 3. MLOps -->
+  <g transform="translate(60, 250)" style="animation: floatCard 5s ease-in-out infinite; animation-delay: 2.5s;">
+    <rect width="280" height="140" class="card" />
+    <rect x="20" y="20" width="40" height="40" fill="rgba(121, 40, 202, 0.1)" rx="8" />
+    <path d="M 30 40 L 50 40 M 40 30 L 40 50" stroke="#A855F7" stroke-width="2" fill="none" />
+    <text x="75" y="45" class="text-title">MLOps &amp; Cloud</text>
+    <text x="20" y="90" class="text-desc">Docker, Kubernetes, AWS.</text>
+    <text x="20" y="110" class="text-desc">CI/CD, MLflow, Model Serving.</text>
+  </g>
+
+  <!-- 4. Python Ecosystem -->
+  <g transform="translate(460, 250)" style="animation: floatCard 5s ease-in-out infinite; animation-delay: 0.8s;">
+    <rect width="280" height="140" class="card" />
+    <rect x="20" y="20" width="40" height="40" class="icon-box" />
+    <polygon points="40,30 50,45 30,45" stroke="#38BDF8" stroke-width="2" fill="none" />
+    <text x="75" y="45" class="text-title">Analytics &amp; Backend</text>
+    <text x="20" y="90" class="text-desc">Python, FastAPI, Pandas.</text>
+    <text x="20" y="110" class="text-desc">NumPy, Scikit-learn, APIs.</text>
+  </g>
+</svg>

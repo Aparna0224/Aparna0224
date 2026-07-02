@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 250" width="100%">
+  <defs>
+    <style>
+      @keyframes drawLine { from { stroke-dashoffset: 1500; } to { stroke-dashoffset: 0; } }
+      @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+      .bg-panel { fill: rgba(13, 17, 23, 0.7); stroke: rgba(255,255,255,0.08); rx: 12px; }
+      .header { font-family: 'Inter', system-ui, sans-serif; font-weight: 600; font-size: 16px; fill: #E6EDF3; letter-spacing: 0.5px; }
+      .label { font-family: 'JetBrains Mono', monospace; font-size: 12px; fill: #8B949E; }
+      .value { font-family: 'Inter', system-ui, sans-serif; font-size: 28px; font-weight: 700; fill: #E6EDF3; }
+      .chart-line { fill: none; stroke: url(#chartGrad); stroke-width: 3; stroke-dasharray: 1500; animation: drawLine 3s ease-out forwards; }
+      .chart-fill { fill: url(#fillGrad); opacity: 0.15; }
+      .stat-card { fill: rgba(255,255,255,0.02); stroke: rgba(255,255,255,0.05); rx: 8px; }
+      .anim-fade { animation: fadeUp 1s ease-out forwards; opacity: 0; }
+    </style>
+    <linearGradient id="chartGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0070F3" />
+      <stop offset="50%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#7928CA" />
+    </linearGradient>
+    <linearGradient id="fillGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="transparent" />
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="100%" height="100%" fill="transparent" />
+  
+  <!-- Main Dashboard Card -->
+  <rect x="10" y="10" width="780" height="230" class="bg-panel" />
+  <!-- Grid overlay -->
+  <rect x="10" y="55" width="780" height="185" fill="url(#grid)" rx="12" />
+  
+  <!-- Header -->
+  <circle cx="35" cy="32" r="5" fill="#10B981" />
+  <text x="55" y="38" class="header">Telemetry Metrics &amp; Contribution Diagnostics</text>
+  <rect x="20" y="55" width="760" height="1" fill="rgba(255,255,255,0.05)" />
+
+  <!-- Layout Grid - Left Stats -->
+  <!-- Stat 1: Commits -->
+  <g transform="translate(30, 75)" class="anim-fade" style="animation-delay: 0.1s;">
+    <rect width="180" height="70" class="stat-card" />
+    <text x="15" y="25" class="label">Total Commits</text>
+    <text x="15" y="55" class="value">1,248</text>
+  </g>
+
+  <!-- Stat 2: Repos -->
+  <g transform="translate(30, 155)" class="anim-fade" style="animation-delay: 0.2s;">
+    <rect width="180" height="70" class="stat-card" />
+    <text x="15" y="25" class="label">Production Repos</text>
+    <text x="15" y="55" class="value" fill="#38BDF8">42</text>
+  </g>
+
+  <!-- Stat 3: PR Rate -->
+  <g transform="translate(225, 75)" class="anim-fade" style="animation-delay: 0.3s;">
+    <rect width="180" height="70" class="stat-card" />
+    <text x="15" y="25" class="label">PR Merge Rate</text>
+    <text x="15" y="55" class="value" fill="#A855F7">98.4%</text>
+  </g>
+  
+  <!-- Stat 4: Models -->
+  <g transform="translate(225, 155)" class="anim-fade" style="animation-delay: 0.4s;">
+    <rect width="180" height="70" class="stat-card" />
+    <text x="15" y="25" class="label">Models Deployed</text>
+    <text x="15" y="55" class="value">14</text>
+  </g>
+
+  <!-- Chart Area - Right Side -->
+  <g transform="translate(430, 80)">
+    <text x="0" y="0" class="label">Contribution Frequency (30D)</text>
+    
+    <!-- Boundary -->
+    <rect x="0" y="15" width="340" height="130" class="stat-card" />
+    
+    <!-- Data Area Fill -->
+    <path d="M 10 145 C 50 120, 90 135, 130 90 C 170 45, 210 110, 250 80 C 290 50, 320 60, 340 30 L 340 145 L 10 145 Z" class="chart-fill" />
+    
+    <!-- The Line -->
+    <path d="M 10 145 C 50 120, 90 135, 130 90 C 170 45, 210 110, 250 80 C 290 50, 320 60, 340 30" class="chart-line" />
+    
+    <!-- Data points -->
+    <circle cx="130" cy="90" r="4" fill="#0070F3" />
+    <circle cx="250" cy="80" r="4" fill="#38BDF8" />
+    <circle cx="340" cy="30" r="4" fill="#A855F7" />
+  </g>
+</svg>
