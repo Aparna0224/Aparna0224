@@ -1,4 +1,4 @@
-﻿
+
 <div align="center">
 
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&height=250&text=Aparna%20J&fontSize=58&animation=fadeIn&fontAlignY=38&color=gradient&customColorList=12,20,24,30"/>
@@ -32,11 +32,11 @@
 
 ### 🛠 Technology Grid
 
-| Languages | AI/ML | Full Stack | Cloud | Data |
+| Languages | AI/ML | Full Stack | Cloud & DevOps | Data |
 |:--:|:--:|:--:|:--:|:--:|
 | <img src="https://skillicons.dev/icons?i=python" width="42"> | <img src="https://skillicons.dev/icons?i=tensorflow" width="42"> | <img src="https://skillicons.dev/icons?i=fastapi" width="42"> | <img src="https://skillicons.dev/icons?i=aws" width="42"> | <img src="https://skillicons.dev/icons?i=postgres" width="42"> |
 | <img src="https://skillicons.dev/icons?i=java" width="42"> | <img src="https://skillicons.dev/icons?i=pytorch" width="42"> | <img src="https://skillicons.dev/icons?i=react" width="42"> | <img src="https://skillicons.dev/icons?i=azure" width="42"> | <img src="https://skillicons.dev/icons?i=mongodb" width="42"> |
-| <img src="https://skillicons.dev/icons?i=cpp" width="42"> | OpenCV | Docker | Git | MySQL |
+| <img src="https://skillicons.dev/icons?i=cpp" width="42"> | OpenCV | | Docker, Git | MySQL |
 
 </td>
 
